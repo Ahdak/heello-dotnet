@@ -7,6 +7,14 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
+
+            // Create new class Book
+            var book = new Book("fist book") ;
+            book.AddGrade(9d) ;
+            book.AddGrade(10d) ;
+            book.AddGrade(11d) ;
+            book.ShowStatistics() ;
+
             double x = 10.0 ;
             var y = 20d ;
             var sum = x + y;
@@ -23,11 +31,14 @@ namespace GradeBook
             var numbers2 = new []{1d,2d,3d};
             // Sum all elements of array
             var sum2 = 0d ;
+            var highGrade = double.MinValue ;
             foreach(var number in numbers2) 
             {
+                highGrade = Math.Max(number,highGrade) ;
                 sum2 += number ;
             }
             System.Console.WriteLine($"Sum = {sum2}");
+            System.Console.WriteLine($"Highest grade = {highGrade}");
 
             // Using lists
             List<double> grades = new List<double>() ;
@@ -51,5 +62,6 @@ namespace GradeBook
             }
             
         }
+
     }
 }
